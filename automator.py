@@ -1,4 +1,5 @@
 from selenium import webdriver
+# from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -28,22 +29,14 @@ class style():
     RESET = '\033[0m'
 
 print(style.BLUE)
-print("**********************************************************")
-print("**********************************************************")
-print("*****                                               ******")
-print("*****  THANK YOU FOR USING WHATSAPP BULK MESSENGER  ******")
-print("*****      This tool was built by Anirudh Bagri     ******")
-print("*****           www.github.com/anirudhbagri         ******")
-print("*****                                               ******")
-print("**********************************************************")
-print("**********************************************************")
+print("Processing...")
 print(style.RESET)
 
 f = open("message.txt", "r", encoding="utf8")
 message = f.read()
 f.close()
 
-print(style.YELLOW + '\nThis is your message-')
+print(style.YELLOW + 'This is your message-')
 print(style.GREEN + message)
 print("\n" + style.RESET)
 message = quote(message)
@@ -58,7 +51,7 @@ total_number=len(numbers)
 print(style.RED + 'We found ' + str(total_number) + ' numbers in the file' + style.RESET)
 delay = 30
 
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+driver = webdriver.Chrome(ChromeDriverManager().install())
 print('Once your browser opens up sign in to web whatsapp')
 driver.get('https://web.whatsapp.com')
 input(style.MAGENTA + "AFTER logging into Whatsapp Web is complete and your chats are visible, press ENTER..." + style.RESET)
