@@ -73,7 +73,7 @@ for idx, number in enumerate(numbers):
 					print("If there is an alert, please dismiss it." + style.RESET)
 				else:
 					sleep(1)
-					driver.execute_script("arguments[0].click();", click_btn)
+					click_btn.click()
 					sent=True
 					sleep(3)
 					print(style.GREEN + 'Message sent to: ' + number + style.RESET)
