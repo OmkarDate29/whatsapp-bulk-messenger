@@ -19,7 +19,7 @@ numbers = df["Phone Number"].tolist() # Get the list of numbers from the excel s
 
 total_number=len(numbers)
 print('We found ' + str(total_number) + ' numbers in the file')
-delay = 30
+delay = 60
 
 options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)
