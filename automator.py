@@ -9,11 +9,6 @@ from urllib.parse import quote
 import os
 import pandas as pd
 
-options = Options()
-options.add_experimental_option("excludeSwitches", ["enable-logging"])
-options.add_argument("--profile-directory=Default")
-options.add_argument("--user-data-dir=/var/tmp/chrome_user_data")
-
 os.system("")
 os.environ["WDM_LOG_LEVEL"] = "0"
 
@@ -26,7 +21,8 @@ total_number=len(numbers)
 print('We found ' + str(total_number) + ' numbers in the file')
 delay = 30
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+options = webdriver.ChromeOptions()
+driver = webdriver.Chrome(options=options)
 print('Once your browser opens up sign in to web whatsapp')
 driver.get('https://web.whatsapp.com')
 input("AFTER logging into Whatsapp Web is complete and your chats are visible, press ENTER...")
@@ -59,7 +55,7 @@ for idx, number in enumerate(numbers):
 					click_btn.click()
 					sent=True
 					sleep(3)
-					print('Message sent to: ' + number + ' successfully!')
+					print('Message sent to: ' + number + ' successfully!\n')
 	except Exception as e:
 		print('Failed to send message to ' + number + str(e))
 driver.close()
